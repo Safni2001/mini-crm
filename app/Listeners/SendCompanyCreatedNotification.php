@@ -26,21 +26,6 @@ class SendCompanyCreatedNotification implements ShouldQueue
      */
     public function handle(CompanyCreated $event): void
     {
-        // Get all admin users to notify
-        $adminUsers = User::get();
-
-        // If no admin users exist, notify all users (fallback)
-        if ($adminUsers->isEmpty()) {
-            $adminUsers = User::all();
-        }
-
-        // Send notification to each admin user
-        foreach ($adminUsers as $admin) {
-            $admin->notify(new CompanyCreatedNotification($event->company, $event->user));
-        }
-
-        // Optionally send notification to all users (for demonstration)
-        // Uncomment the line below if you want to notify all users
-        // Notification::send(User::all(), new CompanyCreatedNotification($event->company, $event->user));
+        $event->user->notify(new CompanyCreatedNotification($event->company, $event->user));
     }
 }
