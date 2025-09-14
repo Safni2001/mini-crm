@@ -157,6 +157,11 @@ npm run lint               # Run ESLint
 -   Use pagination for large datasets
 -   Implement proper caching strategies
 
+### 4. Email Notification
+
+-   env configutations are in env example folder
+-   used personal email credenitial for mailtrap
+
 ## Conclusion
 
 This Mini CRM system demonstrates modern full-stack development practices with proper separation of concerns, authentication, data management, and user interface. The Laravel backend provides a robust API with proper validation, authentication, and file handling. The React frontend offers a rich user experience with proper state management, caching, and performance optimizations.
